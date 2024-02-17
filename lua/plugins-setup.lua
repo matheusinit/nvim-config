@@ -113,6 +113,10 @@ return packer.startup(function(use)
 	-- codium (ai code suggestion)
 	use("Exafunction/codeium.vim")
 
+	use({ "stevearc/dressing.nvim" })
+
+	use("rcarriga/nvim-notify")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
