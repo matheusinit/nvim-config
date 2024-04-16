@@ -11,12 +11,10 @@ return {
     "stevearc/dressing.nvim",
     lazy = true,
     init = function()
-      ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.select = function(...)
         require("lazy").load { plugins = { "dressing.nvim" } }
         return vim.ui.select(...)
       end
-      ---@diagnostic disable-next-line: duplicate-set-field
       vim.ui.input = function(...)
         require("lazy").load { plugins = { "dressing.nvim" } }
         return vim.ui.input(...)
@@ -24,7 +22,6 @@ return {
     end,
   },
 
-  -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -33,7 +30,6 @@ return {
     end,
   },
 
-  -- load luasnips + cmp related in insert mode only
   {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
@@ -82,17 +78,19 @@ return {
     end,
   },
 
-  --
-  -- {
-  -- 	"williamboman/mason.nvim",
-  -- 	opts = {
-  -- 		ensure_installed = {
-  -- 			"lua-language-server", "stylua",
-  -- 			"html-lsp", "css-lsp" , "prettier"
-  -- 		},
-  -- 	},
-  -- },
-  --
+  {
+    "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "lua-language-server",
+        "stylua",
+        "html-lsp",
+        "css-lsp",
+        "prettier",
+      },
+    },
+  },
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
@@ -107,5 +105,12 @@ return {
         "astro",
       },
     },
+  },
+
+  {
+    "laytan/tailwind-sorter.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-lua/plenary.nvim" },
+    build = "cd formatter && npm ci && npm run build",
+    config = true,
   },
 }

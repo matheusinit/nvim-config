@@ -22,3 +22,9 @@ lspconfig.tsserver.setup {
   on_init = on_init,
   capabilities = capabilities,
 }
+
+local tailwind_sorter = require "tailwind-sorter"
+
+tailwind_sorter.setup {
+  on_save_pattern = { "*.html.erb" },
+}
