@@ -2,6 +2,7 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     ruby = { "rufo" },
+    astro = { "eslint_d" },
     -- css = { "prettier" },
     -- html = { "prettier" },
   },
